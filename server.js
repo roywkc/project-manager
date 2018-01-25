@@ -11,8 +11,13 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//routes
+//api routing
 app.use('/api', require('./server/routes/api'));
+
+//angular routing
+app.get('*', function(req, res) {
+  res.sendfile('./app/views/index.html');
+});
 
 //server
 app.listen(3000);

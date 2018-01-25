@@ -13,4 +13,4 @@ var projectSchema = new mongoose.Schema({
 })
 
 //return
-module.exports =restful.model('Projects', projectSchema)
+module.exports = restful.model('Projects', projectSchema)
