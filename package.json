@@ -1,0 +1,14 @@
+{
+  "name": "project-manager",
+  "version": "1.0.0",
+  "description": "lynk interview",
+  "main": "server.js",
+  "scripts": {
+    "test": "get"
+  },
+  "author": "roy",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
