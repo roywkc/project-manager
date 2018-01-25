@@ -1,1 +1,29 @@
-<h1>Hello</h1>
+<!-- public/index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <base href="/">
+
+    <title>Starter Node and Angular</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css"> <!-- custom styles -->
+
+    <!-- JS -->
+    <script src="assets/bower_components/angular/angular.min.js"></script>
+    <script src="assets/bower_components/angular-route/angular-route.min.js"></script>
+
+    <!-- ANGULAR CUSTOM -->
+    <script src="assets/app.js"></script>
+    <script src="assets/javascripts/appRoutes.js"></script>
+  </head>
+  <body ng-app="projectApp" ng-controller="MainController">
+    <div class="container">
+
+        <div>{{tagline}}</div>
+
+    </div>
+  </body>
+</html>
