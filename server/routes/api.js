@@ -1,8 +1,11 @@
+// dependencies
 var express = require('express');
 var router = express.Router();
 
-router.get('/projects', function(req,res){
-  res.send('project api')
-});
+// Models
+var Project = require('../models/project');
+
+Project.methods(['get','put','post','delete']);
+Project.register(router, '/projects');
 
 module.exports = router;
