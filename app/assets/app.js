@@ -12,6 +12,9 @@ app.config([
       .when('/', {// home page
         templateUrl: 'views/session.new.html'
       })
+      .when('/signup', {
+        templateUrl: 'views/user.new.html'
+      })
       .when('/dashboard',{
         templateUrl: 'views/project.index.html',
       })

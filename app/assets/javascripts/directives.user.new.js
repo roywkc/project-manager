@@ -1,10 +1,8 @@
-app.directive('userLogin',
-  function() {
+app.directive('userNew',
+  function($http, $location) {
   return {
     restrict: 'E',
-    scope: {
-      isCollapsed: '@'
-    },
+    scope: true,
     link: function (scope, element, attrs) {
       scope.user = {
         email: null,
@@ -12,12 +10,13 @@ app.directive('userLogin',
       };
 
       scope.submit = function() {
-        $http.post("api/login")
+        $http.post("api/user")
           .success(function(res){
             // console.log(res);
             $location.url = "/dashboard";
           })
       }
+
    }
   }
 });
