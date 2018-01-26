@@ -16,6 +16,7 @@ app.use('/api', require('./server/routes/api'));
 
 //angular routing
 app.use('/assets', express.static('./app/assets'));
+app.use('/views', express.static('./app/views'));
 
 app.get('*', function(req, res) {
   res.sendfile('./app/views/index.html');
