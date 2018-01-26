@@ -6,7 +6,6 @@ app.directive('userLogin',
       isCollapsed: '@'
     },
     link: function (scope, element, attrs) {
-      console.log("hello world");
    }
   }
 });

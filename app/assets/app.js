@@ -12,7 +12,7 @@ app.config([
       .when('/', {// home page
         templateUrl: 'views/session.new.html'
       })
-      .when('/projects',{
+      .when('/dashboard',{
         templateUrl: 'views/project.index.html',
       })
       .when('/projects/:id', {
