@@ -13,11 +13,11 @@ app.config([
         .when('/', {
           templateUrl: 'views/session.new.html'
         })
-        // .when('/projects',{
-        //   templateUrl: 'views/projects.index.html',
-        // })
+        .when('/projects',{
+          templateUrl: 'views/project.index.html',
+        })
         // .when('projects/:id', {
-        //   templateUrl: 'views/projects/show.html',
+        //   templateUrl: 'views/project.show.html',
         // })
 }]);
 

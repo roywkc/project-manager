@@ -1,0 +1,19 @@
+<h1>Projects</h1>
+<project-index>
+  <div class="container">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+      </tr>
+      <tr ng-repeat="project in projects">
+        <td>
+          <a ng-href="projects/{{project._id}}">
+            {{project.name}}
+          </a>
+        </td>
+        <td>{{project.status}}</td>
+      </tr>
+    </table>
+  </div>
+</project-index>
