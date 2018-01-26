@@ -9,16 +9,16 @@ app.config([
   ) {
     $locationProvider.html5Mode(true);
     return $routeProvider
-        // home page
-        .when('/', {
-          templateUrl: 'views/session.new.html'
-        })
-        .when('/projects',{
-          templateUrl: 'views/project.index.html',
-        })
-        // .when('projects/:id', {
-        //   templateUrl: 'views/project.show.html',
-        // })
+      .when('/', {// home page
+        templateUrl: 'views/session.new.html'
+      })
+      .when('/projects',{
+        templateUrl: 'views/project.index.html',
+      })
+      .when('/projects/:id', {
+        templateUrl: 'views/project.show.html',
+      })
+      .otherwise({redirectTo: "/"});
 }]);
 
 app.controller('MainController', function($scope) {
