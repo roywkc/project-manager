@@ -32,6 +32,8 @@ app.controller('MainController', function($rootScope, $http) {
     return true;
   }
 
+
+  // Seed sample data for new db
   $rootScope.seedData = function(){
     $http.post("api/projects",{
       name: "new project 1",
@@ -48,8 +50,6 @@ app.controller('MainController', function($rootScope, $http) {
       startDate: new Date,
       status: "new"
     }).success(function(res){console.log(res)})
-
-
 
     $http.post("api/projects",{
       name: "pending project 1",

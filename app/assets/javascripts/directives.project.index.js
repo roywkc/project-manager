@@ -9,8 +9,11 @@ app.directive('projectIndex',
         $location.url("/");
       }
 
-      $http.get("api/projects").success(function(res){        
+      //todo move http request into service
+      $http.get("api/projects").success(function(res){     
         var projects = res;
+        //Separate project division for use case in dashboard
+        // todo: move handling to api
         var newProjects = _.filter(projects, function(project){
           return project.status == "new" && !isExpired(project);
         });
@@ -45,6 +48,7 @@ app.directive('projectIndex',
       }
 
       var isExpired = function(project) {
+        //todo move to project service to share with project show
         if(project){
           var expiryTime = new Date();
           expiryTime.setDate(expiryTime.getDate()-3);

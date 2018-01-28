@@ -44,6 +44,7 @@ app.directive('projectShow',
         }
       }
       scope.isExpired = function() {
+        //todo move to project service to share with project index
         if(scope.project){
           var expiryTime = new Date();
           expiryTime.setDate(expiryTime.getDate()-3);
