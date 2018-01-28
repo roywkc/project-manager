@@ -1,5 +1,5 @@
 app.directive('userNew',
-  function($http, $location) {
+  function($http, $location, $rootScope) {
   return {
     restrict: 'E',
     scope: true,
@@ -11,12 +11,12 @@ app.directive('userNew',
 
       scope.submit = function() {
         //todo: move to servicec
-        $http.post("api/user", scope.user)
+        $http.post("api/users ", scope.user)
           .success(function(res){
-            $location.url = "/dashboard";
+            $rootScope.email = scope.user.email;
+            $location.path('/dashboard', false);
           })
       }
-
    }
   }
 });

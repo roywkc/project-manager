@@ -1,23 +1,31 @@
 app.directive('userLogin',
-  function() {
+  function($http, $location, $rootScope) {
   return {
     restrict: 'E',
-    scope: {
-      isCollapsed: '@'
-    },
     link: function (scope, element, attrs) {
       scope.user = {
         email: null,
         password: null
       };
-
+      scope.form = {
+        error: ""
+      }
       scope.submit = function() {
-      //todo: move to service
-        $http.post("api/login")
-          .success(function(res){
-            // console.log(res);
-            $location.url = "/dashboard";
-          })
+        scope.form.error = "";
+        //todo: move to service
+        $http.post("api/users/login", scope.user)
+          .then(function(res){
+            if(res.status == 200) {
+              console.log("wtf")
+              $location.path('/dashboard', false);
+            } else {
+              console.log(res)
+              scope.form.error = "Sorry, Invalid Authentication Credentials"
+            }
+          },function(res){
+            console.log("ffs")
+            scope.form.error = "Sorry, Invalid Authentication Credentials"
+          });
       }
    }
   }
