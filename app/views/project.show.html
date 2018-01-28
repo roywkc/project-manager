@@ -3,11 +3,11 @@
     <h1>Project</h1>
 
     <form>
-        <div>
+        <div class="form-fields">
           Project name:
           <input class="form-control" ng-disabled="!isLoggedIn()" type="text" name="" ng-model="project.name">
         </div>
-        <div >
+        <div class="form-fields">
           <div>
             Status:
           </div>
@@ -24,20 +24,21 @@
               Finished
             </label>
           </div>
-        <div ng-show="project.experts">
-          <table>
+        <div ng-show="project.experts" class="table-responsive form-fields">
+          <table class="table">
             <tr>
               <th>Expert</th>
               <th>Status</th>
-              <th></th>
-              <th></th>
+              <th>Approve</th>
+              <th>Reject</th>
+              <th>Remove</th>
             </tr>
             <tr ng-repeat="expert in project.experts">
               <td>{{expert.name}}</td>
               <td>{{expert.status}}</td>
               <td>
                 <a ng-hide="expert.status == 'approved'" 
-                   class="btn btn-primary" 
+                   class="btn btn-md btn-primary btn-block" 
                    ng-disabled="!isLoggedIn()"
                    ng-click="updateExpertStatus($index, 'approved')" >
                   Approve
@@ -45,17 +46,17 @@
               </td>
               <td>
                 <a ng-hide="expert.status == 'rejected'" 
-                   class="btn btn-primary" 
+                   class="btn btn-md btn-primary btn-block" 
                    ng-disabled="!isLoggedIn()" 
                    ng-click="updateExpertStatus($index, 'rejected')">
                   Reject
                 </a>
               </td>
               <td>
-                <a class="btn btn-danger" 
+                <a class="btn btn-md btn-danger btn-block" 
                    ng-disabled="!isLoggedIn()" 
                    ng-click="removeExpert($index)">
-                  remove
+                  Remove
                 </a>
               </td>
             </tr>
@@ -63,13 +64,13 @@
           </table>
           <div style="border-width: 1px;border-style: dotted; height: auto; padding:5px;">
             <input type="text" ng-model="form.newExpert" style="width:40%">
-            <a class="btn btn-primary" ng-disabled="!isLoggedIn()" ng-click="addExpert()"> 
-              add new Expert
+            <a class="btn btn-md btn-primary" ng-disabled="!isLoggedIn()" ng-click="addExpert()"> 
+              Add New Expert
             </a>
           </div>
         </div>
-      <div>
-        <button ng-disabled="!isLoggedIn()" ng-click="submit()">
+      <div style="margin-top: 10px">
+        <button  class="btn btn-md btn-primary btn-block" ng-disabled="!isLoggedIn()" ng-click="submit()">
           Submit
         </button>
       </div>

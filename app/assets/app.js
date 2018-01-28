@@ -24,11 +24,66 @@ app.config([
       .otherwise({redirectTo: "/"});
 }]);
 
-app.controller('MainController', function($rootScope) {
+app.controller('MainController', function($rootScope, $http) {
   $rootScope.email = "roy@woywoy.com"
   
   $rootScope.isLoggedIn = function() {
     //todo:
     return true;
+  }
+
+  $rootScope.seedData = function(){
+    $http.post("api/projects",{
+      name: "new project 1",
+      startDate: new Date,
+      status: "new"
+    }).success(function(res){console.log(res)})
+    $http.post("api/projects",{
+      name: "new project 2",
+      startDate: new Date,
+      status: "new"
+    }).success(function(res){console.log(res)})
+    $http.post("api/projects",{
+      name: "new project 3",
+      startDate: new Date,
+      status: "new"
+    }).success(function(res){console.log(res)})
+
+
+
+    $http.post("api/projects",{
+      name: "pending project 1",
+      startDate: new Date,
+      status: "pending"
+    }).success(function(res){console.log(res)})
+    $http.post("api/projects",{
+      name: "pending project 2",
+      startDate: new Date,
+      status: "pending"
+    }).success(function(res){console.log(res)})
+    $http.post("api/projects",{
+      name: "pending project 3",
+      startDate: new Date,
+      status: "pending"
+    }).success(function(res){console.log(res)})
+
+    var expiry_time = new Date();
+    expiry_time.setDate(expiry_time.getDate()-4);
+
+    $http.post("api/projects",{
+      name: "expired project 1",
+      startDate: expiry_time,
+      status: "new"
+    }).success(function(res){console.log(res)})
+    $http.post("api/projects",{
+      name: "pending project 2",
+      startDate: expiry_time,
+      status: "pending"
+    }).success(function(res){console.log(res)})
+    $http.post("api/projects",{
+      name: "pending project 3",
+      startDate: expiry_time,
+      status: "pending"
+    }).success(function(res){console.log(res)})
   }
 });

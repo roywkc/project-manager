@@ -13,3 +13,9 @@
   height:150px; 
   background-position:center;
 }
+
+.form-fields {
+  padding:20px;
+  border:0.5px;
+  border-style: solid;
+}

@@ -37,7 +37,7 @@ app.directive('projectShow',
       scope.addExpert = function() {
         if (scope.form.newExpert) {
          scope.project.experts.push({
-            status: "pending  ",
+            status: "pending",
             name: scope.form.newExpert
           });
          scope.form.newExpert = "";
@@ -45,13 +45,12 @@ app.directive('projectShow',
       }
       scope.isExpired = function() {
         if(scope.project){
-          var expiry_time = new Date();
-          expiry_time.setDate(expiry_time.getDate()-3);
-          return Date.parse(scope.project.start_date) < expiry_time
+          var expiryTime = new Date();
+          expiryTime.setDate(expiryTime.getDate()-3);
+          return Date.parse(scope.project.startDate) < expiryTime
         } else {
           return false;
         }
-
       }
    }
   }
