@@ -1,19 +1,26 @@
-<h1>Projects</h1>
 <project-index>
   <div class="container">
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Status</th>
-      </tr>
-      <tr ng-repeat="project in projects">
-        <td>
-          <a ng-href="projects/{{project._id}}">
-            {{project.name}}
-          </a>
-        </td>
-        <td>{{project.status}}</td>
-      </tr>
-    </table>
+    <div ng-repeat="(key,projects) in groupedProjects" 
+        class="table-responsive">
+      <h2>{{key}}</h2>
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <th>Start Date</th>
+          <th>Status</th>
+          <th>Approved Experts</th>
+        </tr>
+        <tr ng-repeat="project in projects">
+          <td>
+            <a ng-href="projects/{{project._id}}">
+              {{project.name}}
+            </a>
+          </td>
+          <td>{{project.startDate}}</td>
+          <td>{{project.status}}</td>
+          <td>{{project.approvedExperts}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </project-index>
