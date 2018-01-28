@@ -30,9 +30,14 @@ app.controller('MainController', function($rootScope, $http) {
     return  $rootScope.email;
   }
 
+  $http.get("api/projects").success(function(res){
+    if (res.length == 0) {
+      seedData();
+    }
+  })
 
   // Seed sample data for new db
-  $rootScope.seedData = function(){
+  var seedData = function(){
     $http.post("api/projects",{
       name: "new project 1",
       startDate: new Date,
@@ -54,16 +59,6 @@ app.controller('MainController', function($rootScope, $http) {
       startDate: new Date,
       status: "pending"
     }).success(function(res){console.log(res)})
-    $http.post("api/projects",{
-      name: "pending project 2",
-      startDate: new Date,
-      status: "pending"
-    }).success(function(res){console.log(res)})
-    $http.post("api/projects",{
-      name: "pending project 3",
-      startDate: new Date,
-      status: "pending"
-    }).success(function(res){console.log(res)})
 
     var expiry_time = new Date();
     expiry_time.setDate(expiry_time.getDate()-4);
@@ -71,17 +66,8 @@ app.controller('MainController', function($rootScope, $http) {
     $http.post("api/projects",{
       name: "expired project 1",
       startDate: expiry_time,
-      status: "new"
-    }).success(function(res){console.log(res)})
-    $http.post("api/projects",{
-      name: "pending project 2",
-      startDate: expiry_time,
       status: "pending"
     }).success(function(res){console.log(res)})
-    $http.post("api/projects",{
-      name: "pending project 3",
-      startDate: expiry_time,
-      status: "pending"
-    }).success(function(res){console.log(res)})
+
   }
 });
