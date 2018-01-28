@@ -12,6 +12,7 @@ app.directive('userLogin',
       };
 
       scope.submit = function() {
+      //todo: move to service
         $http.post("api/login")
           .success(function(res){
             // console.log(res);

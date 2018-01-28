@@ -24,7 +24,6 @@ app.config([
       .otherwise({redirectTo: "/"});
 }]);
 
-app.controller('MainController', function($scope) {
-  $scope.tagline = 'test';
-  console.log("hello")
+app.controller('MainController', function($rootScope) {
+  $rootScope.email = "roy@woywoy.com"
 });

@@ -1,5 +1,78 @@
-<h1>Project</h1>
 <project-show>
-<h2>{{project.name}}</h2>
+  <div class="container">
+    <h1>Project</h1>
 
+    <form>
+        <div>
+          Project name:
+          <input class="form-control" ng-disabled="!isLoggedIn()" type="text" name="" ng-model="project.name">
+        </div>
+        <div >
+          <div>
+            Status:
+          </div>
+            <label>
+              <input  ng-disabled="!isLoggedIn() || isExpired()" type="radio" ng-model="project.status" value="new">
+              New
+            </label>
+            <label>
+              <input ng-disabled="!isLoggedIn() || isExpired()" type="radio" ng-model="project.status" value="pending">
+              Pending
+            </label>
+            <label>
+              <input ng-disabled="!isLoggedIn() || isExpired()" type="radio" ng-model="project.status" value="finished">
+              Finished
+            </label>
+          </div>
+        <div ng-show="project.experts">
+          {{project.experts}}
+          <table>
+            <tr>
+              <th>Expert</th>
+              <th>Status</th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr ng-repeat="expert in project.experts track by $index">
+              {{expert}}
+              <td>{{expert.name}}</td>
+              <td>{{expert.status}}</td>
+              <td>
+                <a ng-show="expert.status!= 'approved'" 
+                   class="btn btn-primary" 
+                   ng-disabled="!isLoggedIn()"
+                   ng-click="updateExpertStatus($index, 'accepted')" >
+                  approve
+                </a>
+                <a ng-show="expert.status != 'rejected'" 
+                   class="btn btn-primary" 
+                   ng-disabled="!isLoggedIn()" 
+                   ng-click="updateExpertStatus($index, 'rejected')">
+                  reject
+                </a>
+              </td>
+              <td>
+                <a class="btn btn-danger" 
+                   ng-disabled="!isLoggedIn()" 
+                   ng-click="removeExpert($index)">
+                  remove
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <div>
+                <a class="btn" ng-disabled="!isLoggedIn()" ng-click="addExpert()"> 
+                  add new Expert
+                </a>
+              </div>
+            </tr>
+          </table>
+        </div>
+      <div>
+        <button ng-click="submit()">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
 </project-show>

@@ -1,0 +1,15 @@
+#nav-bar {
+  display: block;
+  max-width: 100%;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: auto;
+}
+
+#logo {
+  background-image:
+  url('https://whub-assets.s3.amazonaws.com/uploads/logo/file/564c2e02ffe57e0003000409/LYNK-RGB_Logo-FA-Colour-02.png'); 
+  width:400px; 
+  height:150px; 
+  background-position:center;
+}

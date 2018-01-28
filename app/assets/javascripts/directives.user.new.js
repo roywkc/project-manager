@@ -10,9 +10,9 @@ app.directive('userNew',
       };
 
       scope.submit = function() {
-        $http.post("api/user")
+        //todo: move to service
+        $http.post("api/user", scope.user)
           .success(function(res){
-            // console.log(res);
             $location.url = "/dashboard";
           })
       }
