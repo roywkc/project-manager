@@ -7,7 +7,7 @@ var mongoose = restful.mongoose
 
 var projectSchema = new mongoose.Schema({
   name: String,
-  experts: Array,
+  experts: Object, //todo solve http issue where arrayOfHash isnt rendered correctly
   startDate: Date,
   status: String
 })

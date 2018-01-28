@@ -25,7 +25,6 @@
             </label>
           </div>
         <div ng-show="project.experts">
-          {{project.experts}}
           <table>
             <tr>
               <th>Expert</th>
@@ -33,22 +32,23 @@
               <th></th>
               <th></th>
             </tr>
-            <tr ng-repeat="expert in project.experts track by $index">
-              {{expert}}
+            <tr ng-repeat="expert in project.experts">
               <td>{{expert.name}}</td>
               <td>{{expert.status}}</td>
               <td>
-                <a ng-show="expert.status!= 'approved'" 
+                <a ng-hide="expert.status == 'approved'" 
                    class="btn btn-primary" 
                    ng-disabled="!isLoggedIn()"
-                   ng-click="updateExpertStatus($index, 'accepted')" >
-                  approve
+                   ng-click="updateExpertStatus($index, 'approved')" >
+                  Approve
                 </a>
-                <a ng-show="expert.status != 'rejected'" 
+              </td>
+              <td>
+                <a ng-hide="expert.status == 'rejected'" 
                    class="btn btn-primary" 
                    ng-disabled="!isLoggedIn()" 
                    ng-click="updateExpertStatus($index, 'rejected')">
-                  reject
+                  Reject
                 </a>
               </td>
               <td>
@@ -59,17 +59,17 @@
                 </a>
               </td>
             </tr>
-            <tr>
-              <div>
-                <a class="btn" ng-disabled="!isLoggedIn()" ng-click="addExpert()"> 
-                  add new Expert
-                </a>
-              </div>
-            </tr>
+
           </table>
+          <div style="border-width: 1px;border-style: dotted; height: auto; padding:5px;">
+            <input type="text" ng-model="form.newExpert" style="width:40%">
+            <a class="btn btn-primary" ng-disabled="!isLoggedIn()" ng-click="addExpert()"> 
+              add new Expert
+            </a>
+          </div>
         </div>
       <div>
-        <button ng-click="submit()">
+        <button ng-disabled="!isLoggedIn()" ng-click="submit()">
           Submit
         </button>
       </div>
