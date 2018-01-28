@@ -16,14 +16,12 @@ app.directive('userLogin',
         $http.post("api/users/login", scope.user)
           .then(function(res){
             if(res.status == 200) {
-              console.log("wtf")
+              $rootScope.email = scope.user.email;
               $location.path('/dashboard', false);
             } else {
-              console.log(res)
               scope.form.error = "Sorry, Invalid Authentication Credentials"
             }
           },function(res){
-            console.log("ffs")
             scope.form.error = "Sorry, Invalid Authentication Credentials"
           });
       }

@@ -25,11 +25,9 @@ app.config([
 }]);
 
 app.controller('MainController', function($rootScope, $http) {
-  $rootScope.email = "roy@woywoy.com"
   
   $rootScope.isLoggedIn = function() {
-    //todo:
-    return true;
+    return  $rootScope.email;
   }
 
 
