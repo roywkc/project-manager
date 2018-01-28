@@ -13,10 +13,10 @@
         <tr ng-repeat="project in projects">
           <td>
             <a ng-href="projects/{{project._id}}">
-              {{project.name}}
+              {{project.name.substring(0,8)}}
             </a>
           </td>
-          <td>{{project.startDate}}</td>
+          <td>{{project.startDate| date:'yyyy-MM-dd'}}</td>
           <td>{{project.status}}</td>
           <td>{{project.approvedExperts}}</td>
         </tr>
