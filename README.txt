@@ -1,3 +1,7 @@
+## Project Manager Interview Question
+This repo is not maintained.
+
+
 Assumptions:
 - MongoDB is local
 - Experts are not a separate DB model yet (model created ahead of time for future useages)
